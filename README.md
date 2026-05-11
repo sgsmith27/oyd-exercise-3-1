@@ -137,10 +137,13 @@ Contenido de:
 - Security Groups
 - User-data bootstrapping
 - S3 integration
+- GitHub Actions
+- CI Pipelines
 - Infrastructure as Code
 ---
 
 # Autor
 Sergio Geovany Garcia Smith
 Carnet 25008130
+
 
