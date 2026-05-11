@@ -121,6 +121,32 @@ arn:aws:s3:::exercise-3-1-oyd/server.rb
 
 Sin wildcards en Actions ni Resources.
 
+# CI Pipeline
+El repositorio incluye un workflow de GitHub Actions ubicado en:
+
+[.github/workflows/terraform-ci.yml](.github/workflows/terraform-ci.yml)
+
+El pipeline se ejecuta automáticamente en cada Pull Request dirigido hacia main.
+
+## Validaciones ejecutadas
++ terraform fmt --check -recursive
++ terraform init -backend=false
++ terraform validate
++ terraform plan -var-file=envs/dev/dev.tfvars
++ publicación automática del plan como comentario en el Pull Request
+
+## Seguridad
+Las credenciales AWS son inyectadas exclusivamente mediante GitHub Secrets:
+
+| Secret                |
+| --------------------- |
+| AWS_ACCESS_KEY_ID     |
+| AWS_SECRET_ACCESS_KEY |
+| AWS_REGION            |
+
+No existen credenciales hardcodeadas en el repositorio.
+
+
 # Evidence
 Contenido de:
 
